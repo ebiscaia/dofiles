@@ -131,10 +131,11 @@ groups = [
     Group("4", matches=[Match(wm_class=["wpspdf","et","wps","wpp"])], label="", layout="stack"),
     Group("5", matches=[Match(wm_class=["code"])], label=""),
     Group("6", label=""),
-    Group("7", label=""),
+    Group("7", label="塞"),
     Group("8", matches=[Match(wm_class=["vlc"])], label="嗢"),
     Group("9", matches=[Match(wm_class=["sayonara"])], label=""),
-    Group("0", matches=[Match(wm_class=["arandr","lxappearance","synaptic"])], label=""),
+    Group("0", matches=[Match(wm_class=["arandr","lxappearance","synaptic"])
+          ], label=""),
 ]
 
 for i in groups:
