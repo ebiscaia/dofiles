@@ -128,13 +128,13 @@ groups = [
     Group("1", matches=[Match(wm_class=["Terminator"])], label=""),
     Group("2", matches=[Match(wm_class=["brave-browser"])], label=""),
     Group("3", matches=[Match(wm_class=["Org.gnome.Nautilus"])], label=""),
-    Group("4", label=""),
-    Group("5", label=""),
+    Group("4", matches=[Match(wm_class=["wpspdf","et","wps","wpp"])], label="", layout="stack"),
+    Group("5", matches=[Match(wm_class=["code"])], label=""),
     Group("6", label=""),
-    Group("7", label=""),
-    Group("8", label=""),
-    Group("9", matches=[Match(wm_class=["vlc"])], label="嗢"),
-    Group("0", matches=[Match(wm_class=["sayonara"])], label=""),
+    Group("7", label=""),
+    Group("8", matches=[Match(wm_class=["vlc"])], label="嗢"),
+    Group("9", matches=[Match(wm_class=["sayonara"])], label=""),
+    Group("0", matches=[Match(wm_class=["arandr","lxappearance","synaptic"])], label=""),
 ]
 
 for i in groups:
