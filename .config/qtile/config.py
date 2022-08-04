@@ -40,7 +40,7 @@ def autostart():
 
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "alacritty"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -85,7 +85,7 @@ keys = [
     ),
     # Open terminal. You can choose your terminal changing the variable
     # terminal from guess_terminal to one of your choice.
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn(terminal + " -e zsh"), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
@@ -114,7 +114,7 @@ keys = [
     Key(
         [mod, "control"],
         "3",
-        lazy.spawn("terminator -e ranger"),
+        lazy.spawn(terminal + " -e ranger"),
         desc="Ranger CLI File Manager",
     ),
     Key(
