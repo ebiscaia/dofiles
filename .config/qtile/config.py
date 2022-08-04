@@ -109,21 +109,12 @@ keys = [
         ),
     ),
     # Programs shortcuts
-    Key([mod, "control"], "1", lazy.spawn("brave-browser"), desc="Launch Chromium"),
-    Key([mod, "control"], "2", lazy.spawn("nautilus"), desc="Nautilus File Manager"),
-    Key(
-        [mod, "control"],
-        "3",
-        lazy.spawn(terminal + " -e ranger"),
-        desc="Ranger CLI File Manager",
-    ),
-    Key(
-        [mod, "control"],
-        "4",
-        lazy.spawn(terminal + " -e 'sudo ranger'"),
-        desc="Ranger CLI File Manager",
-    ),
-]
+    Key([mod, "control"], "1", lazy.spawn(terminal + " -e vim"), desc="Nvim text editor"),
+    Key([mod, "control"], "2", lazy.spawn("brave-browser"), desc="Launch Brave Browser"),
+    Key([mod, "control"], "3", lazy.spawn("nautilus"), desc="Nautilus File Manager"),
+    Key([mod, "shift"], "3", lazy.spawn(terminal + " -e ranger"), desc="Ranger CLI File Manager"),
+    Key([mod, "control"], "4", lazy.spawn("code"),desc="Visual Studio Code"),
+    Key([mod, "shift"], "4", lazy.spawn(terminal + " -e htop"),desc="Htop process manager"),]
 
 groups = [
     Group("1", matches=[Match(wm_class=["Terminator"])], label=""),
