@@ -103,6 +103,7 @@ keys = [
                 selected_foreground="#ebd403",
                 dmenu_font="Binchotan_Sharp Nerd Font-20",
                 dmenu_lines=39,
+                dmenu_ignorecase=True,
                 # dmenu_prompt='Choose Application',
             )
         ),
