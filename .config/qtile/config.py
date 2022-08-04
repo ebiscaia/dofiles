@@ -130,7 +130,7 @@ groups = [
     Group("3", matches=[Match(wm_class=["Org.gnome.Nautilus"])], label=""),
     Group("4", matches=[Match(wm_class=["DesktopEditors","wpspdf","et","wps","wpp"])], label="", layout="stack"),
     Group("5", matches=[Match(wm_class=["code"])], label=""),
-    Group("6", label=""),
+    Group("6", matches=[Match(wm_class=["nxplayer.bin"])], label="", layout="stack"),
     Group("7", label="塞"),
     Group("8", matches=[Match(wm_class=["vlc"])], label="嗢"),
     Group("9", matches=[Match(wm_class=["sayonara"])], label=""),
