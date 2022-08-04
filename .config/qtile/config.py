@@ -128,7 +128,7 @@ groups = [
     Group("1", matches=[Match(wm_class=["Terminator"])], label=""),
     Group("2", matches=[Match(wm_class=["brave-browser"])], label=""),
     Group("3", matches=[Match(wm_class=["Org.gnome.Nautilus"])], label=""),
-    Group("4", matches=[Match(wm_class=["wpspdf","et","wps","wpp"])], label="", layout="stack"),
+    Group("4", matches=[Match(wm_class=["DesktopEditors","wpspdf","et","wps","wpp"])], label="", layout="stack"),
     Group("5", matches=[Match(wm_class=["code"])], label=""),
     Group("6", label=""),
     Group("7", label="塞"),
