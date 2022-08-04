@@ -5,6 +5,6 @@ dunst &
 terminator &
 brave-browser &
 notify-send -a "Ubuntu" "Notification" "Welcome to Qtile"
-nitrogen --restore &
+feh --bg-fill --randomize ~/Pictures/*
 picom &
 
