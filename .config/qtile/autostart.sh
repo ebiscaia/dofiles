@@ -2,7 +2,7 @@
 
 numlockx on
 dunst &
-terminator &
+alacritty &
 brave-browser &
 notify-send -a "Ubuntu" "Notification" "Welcome to Qtile"
 feh --bg-fill --randomize ~/Pictures/*
