@@ -16,7 +16,7 @@ vim.opt.splitbelow = true                     -- Define where splits should be s
 vim.opt.clipboard = "unnamedplus"             -- Neovim can use the system clipboard
 vim.opt.mouse = "a"                           -- Allows mouse usage
 vim.opt.undofile = true                       -- enable persistent undo
-vim.opt.signcolumn = "number"                 -- replace a line number by a sign (linters/fixers)
+vim.opt.signcolumn = "yes"                 -- replace a line number by a sign (linters/fixers)
 vim.opt.termguicolors = true                  -- enable more colors
 vim.opt.modifiable = true                     -- enable changes using neogit
 
