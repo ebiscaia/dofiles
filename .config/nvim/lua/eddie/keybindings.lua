@@ -84,7 +84,7 @@ keymap("n", "<leader>ll", "<cmd>LspInfo<CR>", opts)
 keymap("n", "<leader>li", "<cmd>LspInstallInfo<CR>", opts)
 
 -- Format files
-keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 
 -- Closing and quitting
 keymap("n", "<C-q>", ":bd<CR>", opts)
