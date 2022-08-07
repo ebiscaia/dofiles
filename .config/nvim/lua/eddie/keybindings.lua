@@ -38,7 +38,7 @@ keymap("n", "<Tab>", ":bn<cr>", opts)
 keymap("n", "<S-Tab>", ":bp<cr>", opts)
 
 -- Reload config file
-keymap("n", "vr", ":source $HOME/.config/nvim/init.lua", opts)
+keymap("n", "vr", ":luafile ~/dotfiles/.config/nvim/init.lua", opts)
 
 -- Insert mode
 -- Quick way to leave insert mode
@@ -60,9 +60,35 @@ keymap("v", "p", '"_dP', opts)
 keymap("c", "jj", "<C-C>", opts)
 
 -- Telescope
-keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<C-t>", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opts)
+keymap("n", "<leader>fg", "<cmd>Telescope grep_string<CR>", opts)
+keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
+keymap("n", "<leader>fr", "<cmd>Telescope resume<CR>", opts)
 
 -- NvimTree
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 
+-- Gitsigns
+keymap("n", "<leader>gn", "<cmd>Gitsigns next_hunk<CR>", opts)
+keymap("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<CR>", opts)
+keymap("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
+keymap("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<CR>", opts)
+
+-- Neogit
+keymap("n", "<leader>ng", "<cmd>Neogit<CR>", opts)
+
+
+-- LSP
+keymap("n", "<leader>ll", "<cmd>LspInfo<CR>", opts)
+keymap("n", "<leader>li", "<cmd>LspInstallInfo<CR>", opts)
+
+-- Format files
+keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+
+-- Closing and quitting
+keymap("n", "<C-q>", ":bd<CR>", opts)
+
+-- Diff View
+keymap("n", "<leader>do", ":DiffviewOpen<CR>", opts)
+keymap("n", "<leader>dc", ":DiffviewClose<CR>", opts)
