@@ -86,9 +86,6 @@ keymap("n", "<leader>li", "<cmd>LspInstallInfo<CR>", opts)
 -- Format files
 keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 
--- Closing and quitting
-keymap("n", "<C-q>", ":bd<CR>", opts)
-
 -- Diff View
 keymap("n", "<leader>do", ":DiffviewOpen<CR>", opts)
 keymap("n", "<leader>dc", ":DiffviewClose<CR>", opts)
