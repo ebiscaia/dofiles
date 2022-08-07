@@ -109,12 +109,8 @@ keys = [
         ),
     ),
     # Programs shortcuts
-    Key(
-        ["control"], "1", lazy.spawn(terminal + " -e vim"), desc="Nvim text editor"
-    ),
-    Key(
-        ["control"], "2", lazy.spawn("brave-browser"), desc="Launch Brave Browser"
-    ),
+    Key(["control"], "1", lazy.spawn(terminal + " -e vim"), desc="Nvim text editor"),
+    Key(["control"], "2", lazy.spawn("brave-browser"), desc="Launch Brave Browser"),
     Key(["control"], "3", lazy.spawn("nautilus"), desc="Nautilus File Manager"),
     Key(
         ["control"],
@@ -123,7 +119,7 @@ keys = [
         desc="Ranger CLI File Manager",
     ),
     Key(
-        ["control" ],
+        ["control"],
         "4",
         lazy.spawn(terminal + " -e htop"),
         desc="Htop process manager",
