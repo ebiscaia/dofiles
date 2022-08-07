@@ -35,7 +35,7 @@ from libqtile.utils import guess_terminal
 # Autostart programs
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
+    home = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([home])
 
 
@@ -109,25 +109,59 @@ keys = [
         ),
     ),
     # Programs shortcuts
-    Key([mod, "control"], "1", lazy.spawn(terminal + " -e vim"), desc="Nvim text editor"),
-    Key([mod, "control"], "2", lazy.spawn("brave-browser"), desc="Launch Brave Browser"),
+    Key(
+        [mod, "control"], "1", lazy.spawn(terminal + " -e vim"), desc="Nvim text editor"
+    ),
+    Key(
+        [mod, "control"], "2", lazy.spawn("brave-browser"), desc="Launch Brave Browser"
+    ),
     Key([mod, "control"], "3", lazy.spawn("nautilus"), desc="Nautilus File Manager"),
-    Key([mod, "shift"], "3", lazy.spawn(terminal + " -e ranger"), desc="Ranger CLI File Manager"),
-    Key([mod, "control"], "4", lazy.spawn("code"),desc="Visual Studio Code"),
-    Key([mod, "shift"], "4", lazy.spawn(terminal + " -e htop"),desc="Htop process manager"),]
+    Key(
+        [mod, "shift"],
+        "3",
+        lazy.spawn(terminal + " -e ranger"),
+        desc="Ranger CLI File Manager",
+    ),
+    Key([mod, "control"], "4", lazy.spawn("code"), desc="Visual Studio Code"),
+    Key(
+        [mod, "shift"],
+        "4",
+        lazy.spawn(terminal + " -e htop"),
+        desc="Htop process manager",
+    ),
+]
 
 groups = [
-    Group("1", matches=[Match(wm_class=["Terminator"])], label=""),
+    Group("1", matches=[Match(wm_class=["Terminator", "alacritty"])], label=""),
     Group("2", matches=[Match(wm_class=["brave-browser"])], label=""),
     Group("3", matches=[Match(wm_class=["Org.gnome.Nautilus"])], label=""),
-    Group("4", matches=[Match(wm_class=["DesktopEditors","wpspdf","et","wpsoffice","wps","wpp","evince","mendeley reference manager"])], label="", layout="stack"),
+    Group(
+        "4",
+        matches=[
+            Match(
+                wm_class=[
+                    "DesktopEditors",
+                    "wpspdf",
+                    "et",
+                    "wpsoffice",
+                    "wps",
+                    "wpp",
+                    "evince",
+                    "mendeley reference manager",
+                ]
+            )
+        ],
+        label="",
+        layout="stack",
+    ),
     Group("5", matches=[Match(wm_class=["code"])], label=""),
     Group("6", matches=[Match(wm_class=["nxplayer.bin"])], label="", layout="stack"),
     Group("7", label="塞"),
     Group("8", matches=[Match(wm_class=["vlc"])], label="嗢"),
     Group("9", matches=[Match(wm_class=["sayonara"])], label=""),
-    Group("0", matches=[Match(wm_class=["arandr","lxappearance","synaptic"])
-          ], label=""),
+    Group(
+        "0", matches=[Match(wm_class=["arandr", "lxappearance", "synaptic"])], label=""
+    ),
 ]
 
 for i in groups:
@@ -202,106 +236,99 @@ screens = [
                     this_current_screen_border="#377375",
                     urgent_border="#be0f17",
                 ),
-                                widget.TextBox("",
-                                    foreground = '#377375',
-                                    fontsize=24),
-                
-                 # widget.CurrentLayoutIcon(
-                 #       custom_icon_paths = [os.path.expanduser("~/.config/qtile/layout")],
-                 #       foreground = "#dd2482",
-                 #       scale = 0.5,
-                 #       ),
-                
+                widget.TextBox("", foreground="#377375", fontsize=24),
+                # widget.CurrentLayoutIcon(
+                #       custom_icon_paths = [os.path.expanduser("~/.config/qtile/layout")],
+                #       foreground = "#dd2482",
+                #       scale = 0.5,
+                #       ),
                 widget.CurrentLayout(),
-                widget.TextBox("",
-                    foreground = '#377375',
-                    fontsize=24),
-                
+                widget.TextBox("", foreground="#377375", fontsize=24),
                 widget.WindowName(),
-                widget.TextBox("",
-                    foreground = '#377375',
-                    fontsize=24),
-                
+                widget.TextBox("", foreground="#377375", fontsize=24),
                 widget.CheckUpdates(
-                       update_interval = 60,
-                       distro = "Ubuntu",
-                       display_format = " {updates} ",
-                       no_update_string = "",
-                       colour_have_updates = "#be0f17",
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + " -e 'sudo apt update; apt list --upgradable; $SHELL'"),
-                                          'Button3': lambda: qtile.cmd_spawn(terminal + " -e 'sudo apt upgrade -y; sudo apt autopurge -y; sudo refresh snap'")},
-                       ),
-                widget.TextBox("",
-                    foreground = '#377375',
-                    fontsize=24),
-                widget.TextBox("",
-                    foreground = "#fabd2f",
+                    update_interval=60,
+                    distro="Ubuntu",
+                    display_format=" {updates} ",
+                    no_update_string="",
+                    colour_have_updates="#be0f17",
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(
+                            terminal
+                            + " -e 'sudo apt update; apt list --upgradable; $SHELL'"
+                        ),
+                        "Button3": lambda: qtile.cmd_spawn(
+                            terminal
+                            + " -e 'sudo apt upgrade -y; sudo apt autopurge -y; sudo refresh snap'"
+                        ),
+                    },
+                ),
+                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox(
+                    "",
+                    foreground="#fabd2f",
                     padding=5,
-                    ),
-                
+                ),
                 widget.CPU(
-                        format='{load_percent}%',
-                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + " -e htop")},
-                        ),
-                widget.TextBox("",
-                    foreground = '#377375',
-                    fontsize=24),
-                
-                widget.TextBox("",
+                    format="{load_percent}%",
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(terminal + " -e htop")
+                    },
+                ),
+                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox(
+                    "",
                     padding=5,
-                    foreground = "#fe8019",
-                    ),
-                
+                    foreground="#fe8019",
+                ),
                 widget.Memory(
-                        format='{MemPercent}%',
-                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + " -e htop")},
-                        ),
-                widget.TextBox("",
-                    foreground = '#377375',
-                    fontsize=24),
-                
-                widget.TextBox("",
-                    foreground = "#8ec07c",
+                    format="{MemPercent}%",
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(terminal + " -e htop")
+                    },
+                ),
+                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox(
+                    "",
+                    foreground="#8ec07c",
                     padding=5,
-                    ),
-                
+                ),
                 widget.DF(
-                        format='{r:0.1f}%',
-                        partition='/',
-                        visible_on_warn=False,
-                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + " -e 'df -hT; $SHELL'")},
-                        ),
-                widget.TextBox("",
-                    foreground = '#377375',
-                    fontsize=24),
-                widget.TextBox("",
+                    format="{r:0.1f}%",
+                    partition="/",
+                    visible_on_warn=False,
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(
+                            terminal + " -e 'df -hT; $SHELL'"
+                        )
+                    },
+                ),
+                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox(
+                    "",
                     padding=5,
-                    foreground = "#83a598",
-                    ),
-                
+                    foreground="#83a598",
+                ),
                 widget.Clock(
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + " -e tty-clock")},
-                        format="%I:%M%p"),
-                widget.TextBox("",
-                    foreground = '#377375',
-                    fontsize=24),
-                
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(terminal + " -e tty-clock")
+                    },
+                    format="%I:%M%p",
+                ),
+                widget.TextBox("", foreground="#377375", fontsize=24),
                 widget.Systray(),
-                widget.TextBox("",
-                    foreground = '#377375',
-                    fontsize=24),
-                
+                widget.TextBox("", foreground="#377375", fontsize=24),
                 widget.Volume(
-                       channel='Master',
-                       foreground='#d8dde9',
-                       theme_path = '/home/eddie/.config/qtile/volume',
-                       #emoji=True,
-                       ),
+                    channel="Master",
+                    foreground="#d8dde9",
+                    theme_path="/home/eddie/.config/qtile/volume",
+                    # emoji=True,
+                ),
                 widget.QuickExit(
-                    countdown_format = '[{}s]',
-                    default_text = '⏻ ',
-                    foreground = 'EF2929',
-                    ),
+                    countdown_format="[{}s]",
+                    default_text="⏻ ",
+                    foreground="EF2929",
+                ),
             ],
             30,
             background="#282828",
@@ -336,7 +363,7 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
-    border_focus = "#fbf0c9",
+    border_focus="#fbf0c9",
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
@@ -346,7 +373,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+    ],
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
