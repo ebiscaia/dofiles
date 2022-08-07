@@ -31,7 +31,6 @@ require("nvim-tree").setup {
         git = {
           unstaged = "ﱤ",
           staged = "",
-          commited = "+",
           unmerged = "",
           renamed = "➜",
           untracked = "★",
