@@ -110,25 +110,25 @@ keys = [
     ),
     # Programs shortcuts
     Key(
-        [mod], "1", lazy.spawn(terminal + " -e vim"), desc="Nvim text editor"
+        ["control"], "1", lazy.spawn(terminal + " -e vim"), desc="Nvim text editor"
     ),
     Key(
-        [mod], "2", lazy.spawn("brave-browser"), desc="Launch Brave Browser"
+        ["control"], "2", lazy.spawn("brave-browser"), desc="Launch Brave Browser"
     ),
-    Key([mod], "3", lazy.spawn("nautilus"), desc="Nautilus File Manager"),
+    Key(["control"], "3", lazy.spawn("nautilus"), desc="Nautilus File Manager"),
     Key(
-        [mod],
+        ["control"],
         "F3",
         lazy.spawn(terminal + " -e ranger"),
         desc="Ranger CLI File Manager",
     ),
-    Key([mod], "4", lazy.spawn("code"), desc="Visual Studio Code"),
     Key(
-        [mod, "shift"],
+        ["control" ],
         "4",
         lazy.spawn(terminal + " -e htop"),
         desc="Htop process manager",
     ),
+    Key(["control"], "5", lazy.spawn("code"), desc="Visual Studio Code"),
 ]
 
 groups = [
