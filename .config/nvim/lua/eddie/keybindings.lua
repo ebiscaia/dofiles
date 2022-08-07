@@ -78,7 +78,6 @@ keymap("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<CR>", opts)
 -- Neogit
 keymap("n", "<leader>ng", "<cmd>Neogit<CR>", opts)
 
-
 -- LSP
 keymap("n", "<leader>ll", "<cmd>LspInfo<CR>", opts)
 keymap("n", "<leader>li", "<cmd>LspInstallInfo<CR>", opts)
