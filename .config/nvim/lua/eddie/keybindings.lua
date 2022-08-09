@@ -88,3 +88,12 @@ keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 -- Diff View
 keymap("n", "<leader>do", ":DiffviewOpen<CR>", opts)
 keymap("n", "<leader>dc", ":DiffviewClose<CR>", opts)
+
+-- Git-conflict
+keymap("n", "co", ":GitConflictChooseOurs<CR>", opts)
+keymap("n", "ct", ":GitConflictChooseTheirs<CR>", opts)
+keymap("n", "cb", ":GitConflictChooseBoth<CR>", opts)
+keymap("n", "cn", ":GitConflictChoosNone<CR>", opts)
+keymap("n", "qf", ":GitConflictQf<CR>", opts)
+keymap("n", "<C-Up>", ":GitConflictChooseNextConflict<CR>", opts)
+keymap("n", "<C-Down>", ":GitConflictChoosePreviuosConflict<CR>", opts)
