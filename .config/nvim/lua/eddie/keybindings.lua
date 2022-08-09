@@ -97,6 +97,3 @@ keymap("n", "cn", ":GitConflictChoosNone<CR>", opts)
 keymap("n", "qf", ":GitConflictQf<CR>", opts)
 keymap("n", "<C-Up>", ":GitConflictChooseNextConflict<CR>", opts)
 keymap("n", "<C-Down>", ":GitConflictChoosePreviuosConflict<CR>", opts)
-
--- Source current file
-keymap("n", "<leader>vr", ":source %<CR>", opts)
