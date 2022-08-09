@@ -9,3 +9,7 @@ if not status_ok then
   vim.cmd "colorscheme darkblue"
   return
 end
+
+-- Italic fonts to comments
+-- It needs to be here because it has to be run after colorscheme
+vim.highlight.create('Comment', {cterm='Italic', gui='Italic'}, false)
