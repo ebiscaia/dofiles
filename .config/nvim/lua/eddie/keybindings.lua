@@ -38,7 +38,7 @@ keymap("n", "<Tab>", ":bn<cr>", opts)
 keymap("n", "<S-Tab>", ":bp<cr>", opts)
 
 -- Reload config file
-keymap("n", "vr", ":luafile ~/dotfiles/.config/nvim/init.lua", opts)
+keymap("n", "<leader>vr", ":source %", opts)
 
 -- Insert mode
 -- Quick way to leave insert mode
