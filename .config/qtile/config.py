@@ -31,6 +31,27 @@ from libqtile import bar, layout, widget, hook, extension
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+import cScheme
+
+
+mod = "mod4"
+terminal = "alacritty"
+myColor = cScheme.gruvboxDark
+myFont = "Binchotan_Sharp Nerd Font"
+
+# Identify distribution
+p = subprocess.Popen(
+    "lsb_release -a | cut -f2 | sed -n 2p", stdout=subprocess.PIPE, shell=True
+)
+dist = str(p.communicate()[0])[2:-3]
+
+# Variables for commands that depends on the dists
+if dist == "Ubuntu":
+    lClickUpgrade = " -e 'sudo nala update; nala list --upgradable; $SHELL'"
+    rClickUpgrade = " -e 'sudo nala upgrade -y; sudo nala autopurge -y'"
+elif dist == "Fedora":
+    lClickUpgrade = " -e sudo dnf check-update"
+    rClickUpgrade = " -e sudo dnf --refresh update -y"
 
 # Autostart programs
 @hook.subscribe.startup_once
