@@ -60,8 +60,15 @@ def autostart():
     subprocess.Popen([home])
 
 
-mod = "mod4"
-terminal = "alacritty"
+# @hook.subscribe.client_name_updated
+# def follow_window_name(client):
+#     for group in groups:
+#         match = next((m for m in group.matches if m.compare(client)), None)
+#         if match:
+#             targetgroup = qtile.groups_map[group.name]
+#             targetgroup.cmd_toscreen(toggle=False)
+#             break
+
 
 keys = [
     # A list of available commands that can be bound to keys can be found
