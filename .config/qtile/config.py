@@ -125,12 +125,12 @@ keys = [
         "d",
         lazy.run_extension(
             extension.J4DmenuDesktop(
-                background="#282828",
-                foreground="#377375",
-                selected_background="#282828",
-                selected_foreground="#ebd403",
-                dmenu_font="Binchotan_Sharp Nerd Font-20",
-                dmenu_lines=39,
+                background=myColor[0][0],
+                foreground=myColor[1][0],
+                selected_background=myColor[0][0],
+                selected_foreground=myColor[7][0],
+                dmenu_font=myFont + "-20",
+                dmenu_lines=38,
                 dmenu_ignorecase=True,
                 # dmenu_prompt='Choose Application',
             )
@@ -215,8 +215,8 @@ for i in groups:
 layouts = [
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.MonadTall(
-        border_focus="#fbf0c9",
-        border_normal="282828",
+        border_focus=myColor[15],
+        border_normal=myColor[0],
         margin=10,
         single_margin=10,
         border_width=3,
@@ -228,8 +228,8 @@ layouts = [
     # Try more layouts by unleashing below layouts.
     layout.Stack(
         num_stacks=1,
-        border_focus="#fbf0c9",
-        border_normal="282828",
+        border_focus=myColor[0],
+        border_normal=myColor[15],
         margin=10,
         border_width=3,
     ),
@@ -244,9 +244,10 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="Binchotan_Sharp Nerd Font",
+    font=myFont,
     fontsize=18,
-    foreground="#fbf0c9",
+    foreground=myColor[15],
+    background=myColor[0],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -255,42 +256,40 @@ screens = [
         bottom=bar.Bar(
             [
                 widget.GroupBox(
-                    active="#e6d4a3",
+                    active=myColor[1],
                     borderwidth=2,
-                    this_current_screen_border="#377375",
-                    urgent_border="#be0f17",
+                    this_current_screen_border=myColor[8],
+                    urgent_border=myColor[2],
                 ),
-                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox("", foreground=myColor[8], fontsize=24),
                 # widget.CurrentLayoutIcon(
                 #       custom_icon_paths = [os.path.expanduser("~/.config/qtile/layout")],
-                #       foreground = "#dd2482",
+                #       foreground = "myColor[10]",
                 #       scale = 0.5,
                 #       ),
                 widget.CurrentLayout(),
-                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox("", foreground=myColor[8], fontsize=24),
                 widget.WindowName(),
-                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox("", foreground=myColor[8], fontsize=24),
                 widget.CheckUpdates(
                     update_interval=60,
-                    distro="Ubuntu",
+                    distro=dist,
                     display_format=" {updates} ",
                     no_update_string="",
-                    colour_have_updates="#be0f17",
+                    colour_have_updates=myColor[2],
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn(
-                            terminal
-                            + " -e 'sudo apt update; apt list --upgradable; $SHELL'"
+                            "terminator" + lClickUpgrade
                         ),
                         "Button3": lambda: qtile.cmd_spawn(
-                            terminal
-                            + " -e 'sudo apt upgrade -y; sudo apt autopurge -y; sudo refresh snap'"
+                            "terminator" + rClickUpgrade
                         ),
                     },
                 ),
-                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox("", foreground=myColor[8], fontsize=24),
                 widget.TextBox(
                     "",
-                    foreground="#fabd2f",
+                    foreground=myColor[7],
                     padding=5,
                 ),
                 widget.CPU(
@@ -299,11 +298,11 @@ screens = [
                         "Button1": lambda: qtile.cmd_spawn(terminal + " -e htop")
                     },
                 ),
-                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox("", foreground=myColor[8], fontsize=24),
                 widget.TextBox(
                     "",
                     padding=5,
-                    foreground="#fe8019",
+                    foreground=myColor[6],
                 ),
                 widget.Memory(
                     format="{MemPercent}%",
@@ -311,10 +310,10 @@ screens = [
                         "Button1": lambda: qtile.cmd_spawn(terminal + " -e htop")
                     },
                 ),
-                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox("", foreground=myColor[8], fontsize=24),
                 widget.TextBox(
                     "",
-                    foreground="#8ec07c",
+                    foreground=myColor[13],
                     padding=5,
                 ),
                 widget.DF(
@@ -327,11 +326,11 @@ screens = [
                         )
                     },
                 ),
-                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox("", foreground=myColor[8], fontsize=24),
                 widget.TextBox(
                     "",
                     padding=5,
-                    foreground="#83a598",
+                    foreground=myColor[9],
                 ),
                 widget.Clock(
                     mouse_callbacks={
@@ -339,19 +338,18 @@ screens = [
                     },
                     format="%I:%M%p",
                 ),
-                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox("", foreground=myColor[8], fontsize=24),
                 widget.Systray(),
-                widget.TextBox("", foreground="#377375", fontsize=24),
+                widget.TextBox("", foreground=myColor[8], fontsize=24),
                 widget.Volume(
                     channel="Master",
-                    foreground="#d8dde9",
                     theme_path="/home/eddie/.config/qtile/volume",
                     # emoji=True,
                 ),
                 widget.QuickExit(
                     countdown_format="[{}s]",
                     default_text="⏻ ",
-                    foreground="EF2929",
+                    foreground=myColor[2],
                 ),
             ],
             30,
@@ -387,7 +385,7 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
-    border_focus="#fbf0c9",
+    border_focus=myColor[15],
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
