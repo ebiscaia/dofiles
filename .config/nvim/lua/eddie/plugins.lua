@@ -53,6 +53,7 @@ use "nvim-lualine/lualine.nvim"
 
 -- Colorschemes
 use "gruvbox-community/gruvbox"             -- Gruvbox colorscheme
+use "Mofiqul/dracula.nvim"                  -- Dracula colorscheme
 
 -- Completion plugins
 use "hrsh7th/nvim-cmp"                      -- The completion plugin
