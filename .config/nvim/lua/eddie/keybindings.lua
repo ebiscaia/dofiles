@@ -90,9 +90,9 @@ keymap("n", "<leader>do", ":DiffviewOpen<CR>", opts)
 keymap("n", "<leader>dc", ":DiffviewClose<CR>", opts)
 
 -- Git-conflict
-keymap("n", "co", ":GitConflictChooseOurs<CR>", opts)
-keymap("n", "ct", ":GitConflictChooseTheirs<CR>", opts)
-keymap("n", "cb", ":GitConflictChooseBoth<CR>", opts)
+keymap("n", "<leader>co", ":GitConflictChooseOurs<CR>", opts)
+keymap("n", "<leader>ct", ":GitConflictChooseTheirs<CR>", opts)
+keymap("n", "<leader>cb", ":GitConflictChooseBoth<CR>", opts)
 keymap("n", "cn", ":GitConflictChoosNone<CR>", opts)
 keymap("n", "qf", ":GitConflictQf<CR>", opts)
 keymap("n", "<C-Up>", ":GitConflictChooseNextConflict<CR>", opts)
