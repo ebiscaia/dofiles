@@ -71,7 +71,7 @@ dracula = [
     ["#8be9fd", "#8be9fd"],
     ["#9aedfe", "#9aedfe"],
     ["#f1fa8c", "#f1fa8c"],
-    ["#f4f99d", "#f4f99d"],
+    ["#f4a94d", "#f4a94d"],
     ["#bd93f9", "#bd93f9"],
     ["#caa9fa", "#caa9fa"],
     ["#ff79c6", "#ff79c6"],
