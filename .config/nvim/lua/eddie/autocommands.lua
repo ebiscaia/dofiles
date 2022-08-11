@@ -9,4 +9,4 @@ atcmd("FileType", { pattern = { "python" }, command = [[imap <F5> <Esc>:w<CR>:Te
 
 
 -- Formatting Files
-atcmd("BufWritePre", { pattern = { "*.py", "*.lua" }, callback = function () vim.lsp.buf.formatting_sync() end })
+atcmd("BufWritePre", { pattern = { "*.py", "*.lua" }, callback = function() vim.lsp.buf.formatting_sync() end })
