@@ -1,6 +1,6 @@
 -- vim.cmd "colorscheme gruvbox"
 
-local colorscheme = "gruvbox"
+local colorscheme = "nord"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
@@ -12,4 +12,4 @@ end
 
 -- Italic fonts to comments
 -- It needs to be here because it has to be run after colorscheme
-vim.highlight.create('Comment', {cterm='Italic', gui='Italic'}, false)
+vim.highlight.create('Comment', {cterm='italic', gui='italic'}, false)          -- Comments in italics
