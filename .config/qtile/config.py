@@ -322,7 +322,7 @@ screens = [
                     visible_on_warn=False,
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn(
-                            terminal + " -e 'df -hT; $SHELL'"
+                            "terminator" + " -e 'df -hT;zsh'"
                         )
                     },
                 ),
