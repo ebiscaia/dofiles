@@ -269,7 +269,6 @@ screens = [
                 #       ),
                 widget.CurrentLayout(),
                 widget.TextBox("", foreground=myColor[8], fontsize=24),
-                widget.WindowName(),
                 widget.WindowName(max_chars=20),
                 widget.TextBox("", foreground=myColor[8], fontsize=24),
                 widget.CheckUpdates(
