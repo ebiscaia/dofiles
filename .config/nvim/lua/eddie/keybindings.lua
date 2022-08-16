@@ -97,3 +97,13 @@ keymap("n", "<leader>cn", ":GitConflictChoosNone<CR>", opts)
 keymap("n", "<leader>qf", ":GitConflictQf<CR>", opts)
 keymap("n", "<C-Up>", ":GitConflictChooseNextConflict<CR>", opts)
 keymap("n", "<C-Down>", ":GitConflictChoosePreviuosConflict<CR>", opts)
+
+-- DAP
+-- keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", opts)
+-- keymap("n", "<F10>", ":lua require'dap'.step_over()<CR>", opts)
+-- keymap("n", "<F11>", ":lua require'dap'.step_into()<CR>", opts)
+-- keymap("n", "<F12>", ":lua require'dap'.step_out()<CR>", opts)
+-- keymap("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+-- keymap("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+-- keymap("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil,nil,vim.fn.input('Log point message: '))<CR>", opts)
+-- keymap("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", opts)
