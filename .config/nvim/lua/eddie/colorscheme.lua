@@ -12,4 +12,4 @@ end
 
 -- Italic fonts to comments
 -- It needs to be here because it has to be run after colorscheme
-vim.highlight.create('Comment', {cterm='italic', gui='italic'}, false)          -- Comments in italics
+vim.highlight.create('Comment', { cterm = 'italic', gui = 'italic' }, false) -- Comments in italics
