@@ -753,8 +753,8 @@ colors: *GruvboxDark
 #   - (Windows) powershell
 shell:
   program: /bin/zsh
-  args:
-    - -c "numlockx on"
+  #  args:
+# - -c "numlockx on"
 
 # Startup directory
 #
