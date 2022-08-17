@@ -44,7 +44,7 @@ p = subprocess.Popen(
     "lsb_release -a | cut -f2 | sed -n 2p", stdout=subprocess.PIPE, shell=True
 )
 dist = str(p.communicate()[0])[2:-3]
-
+os.environ["DIST"]=dist
 # Variables for commands that depends on the dists
 if dist == "Ubuntu":
     lClickUpgrade = " -e 'sudo nala update; nala list --upgradable; $SHELL'"
