@@ -35,8 +35,8 @@ import cScheme
 
 
 mod = "mod4"
-terminal = "alacritty"
-myColor = cScheme.gruvboxDark
+terminal = guess_terminal()
+os.environ["GUESSED_TERMINAL"] = terminal
 myFont = "Binchotan_Sharp Nerd Font"
 
 # Identify distribution
