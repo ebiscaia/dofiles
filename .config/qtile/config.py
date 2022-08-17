@@ -257,6 +257,7 @@ screens = [
             [
                 widget.GroupBox(
                     active=myColor[1],
+                    inactive=myColor[14],
                     borderwidth=2,
                     this_current_screen_border=myColor[8],
                     urgent_border=myColor[2],
