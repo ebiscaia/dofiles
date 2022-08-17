@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#Discover the dist name
-DIST=$(lsb_release -a | cut -f2 | sed -n 2p)
-
 numlockx on
 dunst &
 alacritty &
