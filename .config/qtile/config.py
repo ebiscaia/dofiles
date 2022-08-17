@@ -38,6 +38,7 @@ mod = "mod4"
 terminal = guess_terminal()
 os.environ["GUESSED_TERMINAL"] = terminal
 myFont = "Binchotan_Sharp Nerd Font"
+myColor = cScheme.catPuccinMocha
 
 # Identify distribution
 p = subprocess.Popen(
