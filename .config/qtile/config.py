@@ -156,7 +156,7 @@ keys = [
 ]
 
 groups = [
-    Group("1", matches=[Match(wm_class=["Terminator", "Alacritty"])], label=""),
+    Group("1", matches=[Match(wm_class=["Terminator", "Alacritty","kitty"])], label=""),
     Group("2", matches=[Match(wm_class=["brave-browser"])], label=""),
     Group("3", matches=[Match(wm_class=["Org.gnome.Nautilus"])], label=""),
     Group(
