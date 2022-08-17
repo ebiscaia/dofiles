@@ -2,7 +2,7 @@
 
 numlockx on
 dunst &
-alacritty &
+$GUESSED_TERMINAL &
 brave-browser &
 notify-send -a $DIST "Notification" "Welcome to Qtile"
 feh --bg-fill --randomize ~/Pictures/*
