@@ -280,10 +280,10 @@ screens = [
                     colour_have_updates=myColor[2],
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn(
-                            "terminator" + lClickUpgrade
+                            terminal + lClickUpgrade
                         ),
                         "Button3": lambda: qtile.cmd_spawn(
-                            "terminator" + rClickUpgrade
+                            terminal + rClickUpgrade
                         ),
                     },
                 ),
@@ -323,7 +323,7 @@ screens = [
                     visible_on_warn=False,
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn(
-                            "terminator" + " -e 'df -hT;zsh'"
+                            terminal + " -e 'df -hT;zsh'"
                         )
                     },
                 ),
