@@ -59,15 +59,15 @@ def autostart():
     home = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([home])
 
-
-# @hook.subscribe.client_name_updated
-# def follow_window_name(client):
-#     for group in groups:
-#         match = next((m for m in group.matches if m.compare(client)), None)
-#         if match:
-#             targetgroup = qtile.groups_map[group.name]
-#             targetgroup.cmd_toscreen(toggle=False)
-#             break
+# Move to correct Group when a program is started
+@hook.subscribe.client_new
+def follow_window_name(client):
+     for group in groups:
+         match = next((m for m in group.matches if m.compare(client)), None)
+         if match:
+             targetgroup = qtile.groups_map[group.name]
+             targetgroup.cmd_toscreen(toggle=False)
+             break
 
 
 keys = [
