@@ -12,8 +12,8 @@ end
 
 -- Italic fonts to comments
 -- It needs to be here because it has to be run after colorscheme
-
-if colorscheme == "nord" then vim.api.nvim_set_hl(0, "Comment", { fg = "#4C566A", italic = true })
-elseif colorscheme == "gruvbox" then vim.api.nvim_set_hl(0, "Comment", { fg = "#a89984", italic = true })
-elseif colorscheme == "darkblue" then vim.api.nvim_set_hl(0, "Comment", { fg = "#81a1c1", italic = true })
+--vim.highlight.create('Comment', { cterm = 'italic', gui = 'italic' }, false) -- Comments in italics
+if colorscheme == "nord" then vim.api.nvim_set_hl(0, 'Comment', { fg = "#4C556A", italic = true })
+elseif colorscheme == "gruvbox" then vim.api.nvim_set_hl(0, 'Comment', { fg = "#a89984", italic = true })
+elseif colorscheme == "darkblue" then vim.api.nvim_set_hl(0, 'Comment', { fg = "#81a1c1", italic = true })
 end
