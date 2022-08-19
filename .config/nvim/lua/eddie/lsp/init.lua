@@ -8,3 +8,4 @@ require("eddie.lsp.null-ls")
 require("eddie.lsp.config")
 require("eddie.lsp.handlers").setup()
 
+--test
