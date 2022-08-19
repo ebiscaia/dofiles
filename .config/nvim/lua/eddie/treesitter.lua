@@ -16,5 +16,5 @@ configs.setup {
     additional_vim_regex_highlighting = true,
 
   },
-  indent = { enable = true, disable = {  } },
+  indent = { enable = true, disable = {} },
 }
