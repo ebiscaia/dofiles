@@ -38,18 +38,18 @@ mod = "mod4"
 terminal = guess_terminal()
 os.environ["GUESSED_TERMINAL"] = terminal
 myFont = "Binchotan_Sharp Nerd Font"
-myColor = cScheme.catPuccinMocha
+myColor = cScheme.gruvboxDark
 
 # Identify distribution
 p = subprocess.Popen(
     "lsb_release -a | cut -f2 | sed -n 2p", stdout=subprocess.PIPE, shell=True
 )
 dist = str(p.communicate()[0])[2:-3]
-os.environ["DIST"]=dist
+os.environ["DIST"] = dist
 # Variables for commands that depends on the dists
 if dist == "Ubuntu":
-    lClickUpgrade = " -e 'sudo nala update; nala list --upgradable; $SHELL'"
-    rClickUpgrade = " -e 'sudo nala upgrade -y; sudo nala autopurge -y'"
+    lClickUpgrade = " -e sleep 1; sudo nala update; nala list --upgradable;"
+    rClickUpgrade = " -e sleep 1; sudo nala upgrade -y; sudo nala autopurge -y"
 elif dist == "Fedora":
     lClickUpgrade = " -e sudo dnf check-update"
     rClickUpgrade = " -e sudo dnf --refresh update -y"
@@ -60,15 +60,16 @@ def autostart():
     home = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([home])
 
+
 # Move to correct Group when a program is started
 @hook.subscribe.client_new
 def follow_window_name(client):
-     for group in groups:
-         match = next((m for m in group.matches if m.compare(client)), None)
-         if match:
-             targetgroup = qtile.groups_map[group.name]
-             targetgroup.cmd_toscreen(toggle=False)
-             break
+    for group in groups:
+        match = next((m for m in group.matches if m.compare(client)), None)
+        if match:
+            targetgroup = qtile.groups_map[group.name]
+            targetgroup.cmd_toscreen(toggle=False)
+            break
 
 
 keys = [
@@ -157,7 +158,9 @@ keys = [
 ]
 
 groups = [
-    Group("1", matches=[Match(wm_class=["Terminator", "Alacritty","kitty"])], label=""),
+    Group(
+        "1", matches=[Match(wm_class=["Terminator", "Alacritty", "kitty"])], label=""
+    ),
     Group("2", matches=[Match(wm_class=["brave-browser"])], label=""),
     Group("3", matches=[Match(wm_class=["Org.gnome.Nautilus"])], label=""),
     Group(
@@ -280,12 +283,8 @@ screens = [
                     no_update_string="",
                     colour_have_updates=myColor[2],
                     mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn(
-                            terminal + lClickUpgrade
-                        ),
-                        "Button3": lambda: qtile.cmd_spawn(
-                            terminal + rClickUpgrade
-                        ),
+                        "Button1": lambda: qtile.cmd_spawn(terminal + lClickUpgrade),
+                        "Button3": lambda: qtile.cmd_spawn(terminal + rClickUpgrade),
                     },
                 ),
                 widget.TextBox("", foreground=myColor[8], fontsize=24),
