@@ -36,3 +36,5 @@ require 'lspconfig'.html.setup {
     }
   }
 }
+
+--test
