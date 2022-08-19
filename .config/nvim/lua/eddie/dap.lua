@@ -1,7 +1,7 @@
 local dap = require("dap")
 
-vim.fn.sign_define('DapBreakpoint', { text = '', texthl = '', numbhl = '', linehl = '' })
-vim.fn.sign_define('DapStopped', { text = '', texthl = '', numbhl = '', linehl = '' })
+vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticSignError', numbhl = '', linehl = '' })
+vim.fn.sign_define('DapStopped', { text = '', texthl = 'DiagnosticSignHint', numbhl = '', linehl = '' })
 
 vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
 vim.keymap.set("n", "<F10>", ":lua require'dap'.step_over()<CR>")
