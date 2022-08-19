@@ -7,4 +7,5 @@ atcmd("FileType",
 
 
 -- Formatting Files
-atcmd("BufWritePre", { pattern = { "*.py", "*.lua" }, callback = function() vim.lsp.buf.formatting_sync() end })
+atcmd("BufWritePre",
+  { pattern = { "*.py", "*.lua", "*.html", "*.htm" }, callback = function() vim.lsp.buf.formatting_sync() end })
