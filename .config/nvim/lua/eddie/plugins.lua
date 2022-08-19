@@ -84,6 +84,7 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+  use "windwp/nvim-ts-autotag"
 
   -- Nvim Tree
   use "kyazdani42/nvim-tree.lua"
