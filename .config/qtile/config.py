@@ -37,8 +37,13 @@ import cScheme
 mod = "mod4"
 terminal = guess_terminal()
 os.environ["GUESSED_TERMINAL"] = terminal
+<<<<<<< Updated upstream
 myFont = "Binchotan_Sharp Nerd Font"
 myColor = cScheme.gruvboxDark
+=======
+myFont = "mononoki Nerd Font"
+myColor = cScheme.catPuccinMocha
+>>>>>>> Stashed changes
 
 # Identify distribution
 p = subprocess.Popen(
@@ -219,7 +224,7 @@ for i in groups:
 layouts = [
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.MonadTall(
-        border_focus=myColor[15],
+        border_focus=myColor[7],
         border_normal=myColor[0],
         margin=10,
         single_margin=10,
@@ -249,7 +254,7 @@ layouts = [
 
 widget_defaults = dict(
     font=myFont,
-    fontsize=18,
+    fontsize=16,
     foreground=myColor[15],
     background=myColor[0],
 )
@@ -260,7 +265,7 @@ screens = [
         bottom=bar.Bar(
             [
                 widget.GroupBox(
-                    active=myColor[1],
+                    active=myColor[7],
                     inactive=myColor[14],
                     borderwidth=2,
                     this_current_screen_border=myColor[8],
