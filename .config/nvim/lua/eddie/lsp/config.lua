@@ -8,6 +8,7 @@ local lspconfig = require("lspconfig")
 local servers = { "jsonls",
   "sumneko_lua",
   "jedi_language_server",
+  "clangd",
   "emmet_ls" }
 
 lsp_installer.setup({

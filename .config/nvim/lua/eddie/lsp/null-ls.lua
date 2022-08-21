@@ -16,6 +16,8 @@ null_ls.setup {
       "--single-quote",
       "--jsx-single-quote" } },
     formatting.black.with { extra_args = { "--fast" } },
+    formatting.uncrustify,
+    formatting.astyle,
     --        -- formatting.yapf,
     --    formatting.stylua
     --        diagnostics.flake8,
