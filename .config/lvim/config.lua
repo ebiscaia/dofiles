@@ -12,6 +12,7 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "catppuccin"
+vim.g.catppuccin_flavour = "mocha"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -59,9 +60,28 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
-lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.gitsigns.active = true
+
+
+-- ToggleTerm (terminal)
+lvim.builtin.terminal.active = true
+lvim.builtin.terminal.size = 15
+lvim.builtin.terminal.open_mapping = [[<C-\>]]
+lvim.builtin.terminal.direction = 'horizontal'
+lvim.builtin.terminal.shading_factor = 5
+lvim.builtin.terminal.shade_terminals = true
+lvim.builtin.terminal.shade_filetypes = { "none", }
+
+-- DAP
+lvim.builtin.dap.active = true
+lvim.builtin.dap.breakpoint = { text = '', texthl = 'DiagnosticSignError', numbhl = '', linehl = '' }
+lvim.builtin.dap.stopped = { text = '', texthl = 'DiagnosticSignHint', numbhl = '', linehl = '' }
+
+-- DAP mappings
+vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
+
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
@@ -81,8 +101,6 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
-vim.g.catppuccin_flavour = "mocha"
-
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
@@ -90,6 +108,7 @@ lvim.lsp.automatic_servers_installation = false
 lvim.lsp.installer.setup.ensure_installed = {
   "sumeko_lua",
   "jsonls",
+  "emmet_ls",
   "jedi_language_server",
 }
 -- -- change UI setting of `LspInstallInfo`
@@ -106,9 +125,10 @@ lvim.lsp.installer.setup.ensure_installed = {
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright", "html" })
 local opts = {} -- check the lspconfig documentation for a list of all possible options
-require("lvim.lsp.manager").setup("pyright", opts)
+require("lvim.lsp.manager").setup("jedi_language_server", opts)
+require("lvim.lsp.manager").setup("emmet_ls", opts)
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
@@ -163,6 +183,13 @@ formatters.setup {
 -- Additional Plugins
 lvim.plugins = {
   { "catppuccin/nvim", as = "catppuccin" },
+  { "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+  { "rcarriga/nvim-dap-ui", as = "dap-ui" },
+  { "mfusseneger/nvim-dap-python", as = "dap-python" },
 }
 --     {"folke/tokyonight.nvim"},
 --     {
@@ -170,6 +197,8 @@ lvim.plugins = {
 --       cmd = "TroubleToggle",
 --     },
 -- }
+
+
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
