@@ -22,19 +22,3 @@ for _, server in pairs(servers) do
   end
   lspconfig[server].setup(opts)
 end
-
-require 'lspconfig'.html.setup {
-  cmd = { "vscode-html-language-server", "--stdio" },
-  settings = {
-    html = {
-      completion = {
-        attributeDefaultValue = "singlequotes",
-      },
-      format = {
-        wrapLineLength = 5,
-      }
-    }
-  }
-}
-
---test
