@@ -8,4 +8,4 @@ atcmd("FileType",
 
 -- Formatting Files
 atcmd("BufWritePre",
-  { pattern = { "*.lua", "*.html", "*.htm", "*py" }, callback = function() vim.lsp.buf.format() end })
+  { pattern = { "*.lua", "*.css", "*.html", "*.htm", "*py" }, callback = function() vim.lsp.buf.format() end })
