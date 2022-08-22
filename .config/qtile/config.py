@@ -175,6 +175,7 @@ groups = [
                     "wps",
                     "wpp",
                     "evince",
+                    "Zotero",
                     "mendeley reference manager",
                 ]
             )
