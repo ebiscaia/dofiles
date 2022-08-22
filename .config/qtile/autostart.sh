@@ -7,5 +7,6 @@ feh --bg-fill --randomize ~/Pictures/*
 picom &
 /usr/bin/xautolock -time 10 -locker "i3lock-fancy -f" -detectsleep &
 copyq &
+sleep 1
 $GUESSED_TERMINAL &
 numlockx on
