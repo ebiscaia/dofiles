@@ -79,8 +79,8 @@ keymap("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<CR>", opts)
 keymap("n", "<leader>ng", "<cmd>Neogit<CR>", opts)
 
 -- LSP
-keymap("n", "<leader>ll", "<cmd>LspInfo<CR>", opts)
-keymap("n", "<leader>li", "<cmd>LspInstallInfo<CR>", opts)
+keymap("n", "<leader>ll", "<cmd>MasonInfo<CR>", opts)
+keymap("n", "<leader>li", "<cmd>MasonInstallInfo<CR>", opts)
 
 -- Format files
 keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
@@ -90,13 +90,13 @@ keymap("n", "<leader>do", ":DiffviewOpen<CR>", opts)
 keymap("n", "<leader>dc", ":DiffviewClose<CR>", opts)
 
 -- Git-conflict
-keymap("n", "<leader>co", ":GitConflictChooseOurs<CR>", opts)
+--[[  keymap("n", "<leader>co", ":GitConflictChooseOurs<CR>", opts)
 keymap("n", "<leader>ct", ":GitConflictChooseTheirs<CR>", opts)
 keymap("n", "<leader>cb", ":GitConflictChooseBoth<CR>", opts)
 keymap("n", "<leader>cn", ":GitConflictChoosNone<CR>", opts)
 keymap("n", "<leader>qf", ":GitConflictQf<CR>", opts)
-keymap("n", "<C-Up>", ":GitConflictChooseNextConflict<CR>", opts)
-keymap("n", "<C-Down>", ":GitConflictChoosePreviuosConflict<CR>", opts)
+keymap("n", "<M-Up>", ":GitConflictChooseNextConflict<CR>", opts)
+keymap("n", "<M-Down>", ":GitConflictChoosePreviuosConflict<CR>", opts) ]]
 
 -- DAP
 -- keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", opts)

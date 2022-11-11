@@ -1,19 +1,21 @@
-require "eddie.options"
-require "eddie.keybindings"
-require "eddie.plugins"
-require "eddie.colorscheme"
-require "eddie.treesitter"
-require "eddie.cmp"
-require "eddie.lsp"
-require "eddie.telescope"
-require "eddie.autopairs"
-require "eddie.nvimtree"
-require "eddie.toggleterm"
-require "eddie.colorizer"
-require "eddie.neogit"
-require "eddie.bufferline"
-require "eddie.lualine"
-require "eddie.diffview"
-require "eddie.gitsigns"
-require "eddie.autocommands"
-require "eddie.dap"
+require("eddie.plugins")
+require("eddie.lsp")
+require("eddie.options")
+require("eddie.keybindings")
+require("eddie.colorscheme")
+require("eddie.treesitter")
+require("eddie.cmp")
+require("eddie.telescope")
+require("eddie.autopairs")
+require("eddie.nvimtree")
+require("eddie.toggleterm")
+require("eddie.colorizer")
+require("eddie.neogit")
+require("eddie.bufferline")
+require("eddie.lualine")
+require("eddie.diffview")
+require("eddie.gitsigns")
+require("eddie.autocommands")
+require("eddie.dap")
+require("eddie.indentline")
+require("eddie.fidget")

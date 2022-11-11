@@ -1,7 +1,6 @@
-local status_ok, colorizer = pcall(require, "colorizer")
+local status_ok, indent_line = pcall(require, "indent_blankline")
 if not status_ok then
-	return
+  return
 end
 
-colorizer.setup()
-
+indent_line.setup()

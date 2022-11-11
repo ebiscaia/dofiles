@@ -4,7 +4,7 @@ if not status_ok then
   return
 end
 
-bufferline.setup {
+bufferline.setup({
   options = {
     numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
@@ -14,7 +14,7 @@ bufferline.setup {
     -- NOTE: this plugin is designed with this icon in mind,
     -- and so changing this is NOT recommended, this is intended
     -- as an escape hatch for people who cannot bear it for whatever reason
-    indicator_icon = "|",
+    indicator = { style = icon, icon = "|" },
     buffer_close_icon = "",
     -- buffer_close_icon = '',
     modified_icon = "●",
@@ -64,7 +64,7 @@ bufferline.setup {
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     -- can also be a table containing 2 custom separators
     -- [focused and unfocused]. eg: { '|', '|' }
-    separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
+    separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
     enforce_regular_tabs = true,
     always_show_bufferline = true,
     -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
@@ -72,4 +72,4 @@ bufferline.setup {
     --   return buffer_a.modified > buffer_b.modified
     -- end
   },
-}
+})
