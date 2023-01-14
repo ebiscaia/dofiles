@@ -106,6 +106,16 @@ def follow_window_name(client):
             break
 
 
+# Define a function to change keyboard backlight
+bLevel = 0
+
+@lazy.function
+def keyBacklight(qtile):
+    global bLevel
+    bLevel = (bLevel + 1) / 3
+    lazy.spawn('light -Srs "sysfs/leds/dell::kbd_backlight" bLevel')
+
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -225,6 +235,7 @@ groups = [
     Group(
         "0", matches=[Match(wm_class=["arandr", "lxappearance", "synaptic"])], label=""
     ),
+    Key([], "XF86KbdLightOnOff", keyBacklight()),
 ]
 
 for i in groups:
