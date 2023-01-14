@@ -28,17 +28,45 @@ import os
 import subprocess
 from libqtile import qtile
 from libqtile import bar, layout, widget, hook, extension
-from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
+from libqtile.config import (
+    Click,
+    Drag,
+    DropDown,
+    Group,
+    Key,
+    Match,
+    ScratchPad,
+    Screen,
+    KeyChord,
+)
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 import cScheme
 
+from Xlib import X, display
+from Xlib.ext import randr
+
+d = display.Display()
+s = d.screen()
+r = s.root
+res = r.xrandr_get_screen_resources()._data
+
+# Dynamic multiscreen! (Thanks XRandr)
+num_screens = 0
+for output in res["outputs"]:
+    print("Output %d:" % (output))
+    mon = d.xrandr_get_output_info(output, res["config_timestamp"])._data
+    print("%s: %d" % (mon["name"], mon["num_preferred"]))
+    if mon["num_preferred"]:
+        num_screens += 1
+
+print(num_screens)
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = str(guess_terminal())
 os.environ["GUESSED_TERMINAL"] = terminal
-myFont = "Binchotan_Sharp Nerd Font"
-myColor = cScheme.gruvboxDark
+myFont = "mononoki NFM"
+myColor = cScheme.catPuccinMocha
 
 # Identify distribution
 p = subprocess.Popen(
