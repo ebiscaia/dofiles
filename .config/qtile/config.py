@@ -79,8 +79,9 @@ if dist == "Ubuntu":
     lClickUpgrade = " -e sleep 1; sudo nala update; nala list --upgradable;"
     rClickUpgrade = " -e sleep 1; sudo nala upgrade -y; sudo nala autopurge -y"
 elif dist == "Fedora":
-    lClickUpgrade = " -e sudo dnf check-update"
-    rClickUpgrade = " -e sudo dnf --refresh update -y"
+    lClickUpgrade = " --hold sudo dnf check-update"
+    rClickUpgrade = " --hold sudo dnf --refresh update -y"
+
 
 # Autostart programs
 @hook.subscribe.startup_once
