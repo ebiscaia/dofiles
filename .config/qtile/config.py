@@ -74,6 +74,11 @@ p = subprocess.Popen(
 )
 dist = str(p.communicate()[0])[2:-3]
 os.environ["DIST"] = dist
+# Identify the audio sink
+# Variable PMIX is create and set in autostart.sh
+amixer = os.getenv("PMIX")
+amixer = str(amixer)
+
 # Variables for commands that depends on the dists
 if dist == "Ubuntu":
     lClickUpgrade = " -e sleep 1; sudo nala update; nala list --upgradable;"
